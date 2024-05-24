@@ -501,14 +501,16 @@ void subdivide_edgeDiff(MatrixXi &F, MatrixXd &V, MatrixXd &N, MatrixXd &Q, Matr
             auto diff = edge_diff[face_edgeIds[i][j]];
             if (abs(diff[0]) > 1 || abs(diff[1]) > 1) {
                 printf("wrong init %d %d!\n", face_edgeIds[i][j], i * 3 + j);
-                exit(0);
+                //exit(0);
+                throw std::runtime_error("Failed: qflow::Hierarchy::subdivide_edgeDiff. wrong init.");
             }
         }
     }
     for (int i = 0; i < edge_diff.size(); ++i) {
         if (abs(edge_diff[i][0]) > 1 || abs(edge_diff[i][1]) > 1) {
             printf("wrong...\n");
-            exit(0);
+            //exit(0);
+            throw std::runtime_error("Failed: qflow::Hierarchy::subdivide_edgeDiff. wrong.");
         }
     }
 }

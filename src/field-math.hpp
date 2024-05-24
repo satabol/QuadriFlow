@@ -319,7 +319,8 @@ inline Vector3d Travel(Vector3d p, const Vector3d &dir, double &len, int &f, Vec
         }
         if (!found) {
             printf("error...\n");
-            exit(0);
+            //exit(0);
+            throw std::runtime_error( "Failed: field-math.hhp, qflow::Travel" );
         }
         //		printf("status: %f %f %d\n", len, max_len, f);
         if (max_len >= len) {
@@ -435,7 +436,8 @@ inline Vector3d TravelField(Vector3d p, Vector3d &pt, double &len, int &f, Vecto
 
         if (!found) {
             printf("error...\n");
-            exit(0);
+            //exit(0);
+            throw std::runtime_error( "Failed: field-math.hhp, qflow::TravelField" );
         }
         //		printf("status: %f %f %d\n", len, max_len, f);
         if (max_len >= len) {

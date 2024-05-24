@@ -140,12 +140,27 @@ set(
 )
 
 add_executable(
+    quadriflow_exe   # https://discourse.cmake.org/t/how-to-use-the-same-name-for-a-target-and-a-library/5044
+    ${quadriflow_SRC}
+)
+
+add_library(
     quadriflow
     ${quadriflow_SRC}
 )
 
+set_property(TARGET quadriflow_exe PROPERTY OUTPUT_NAME quadriflow)                                          
+
 target_link_libraries(
     quadriflow
+    ${TBB_LIBRARIES}
+    ${LEMON_LIBRARIES}
+    ${GUROBI_LIBRARIES}
+)
+
+
+target_link_libraries(
+    quadriflow_exe
     ${TBB_LIBRARIES}
     ${LEMON_LIBRARIES}
     ${GUROBI_LIBRARIES}
