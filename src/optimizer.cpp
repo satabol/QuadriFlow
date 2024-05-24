@@ -866,7 +866,8 @@ void Optimizer::optimize_positions_sharp(
                 auto it = links[v1].find(v2);
                 if (it == links[v1].end()) {
                     printf("Non exist!\n");
-                    exit(0);
+                    //exit(0);
+                    throw std::runtime_error("Failed: qflow::Optimizer::optimize_positions_sharp.");
                 }
             }
 
@@ -1152,13 +1153,15 @@ void Optimizer::optimize_positions_fixed(
         rhs(i) = b[i];
         if (std::isnan(b[i])) {
             printf("Equation has nan!\n");
-            exit(0);
+            //exit(0);
+            throw std::runtime_error("Failed: qflow::Hierarchy::optimize_positions_fixed. Equation has nan! (1)");
         }
         for (auto& rec : entries[i]) {
             lhsTriplets.push_back(Eigen::Triplet<double>(i, rec.first, rec.second));
             if (std::isnan(rec.second)) {
                 printf("Equation has nan!\n");
-                exit(0);
+                //exit(0);
+                throw std::runtime_error("Failed: qflow::Hierarchy::optimize_positions_fixed. Equation has nan! (2)");
             }
         }
     }
