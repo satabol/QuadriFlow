@@ -46,3 +46,60 @@ cd build
 
 Now you have Visual Studio 2022 Solution in the folder build:
 
+![image](https://github.com/satabol/QuadriFlow/assets/14288520/034c8e1e-8733-4430-a46c-6326c6214b9b)
+
+open this solution in the Visual Studio and build it. If all ok then you have to see static library **quadriflow.lib**. It will used later to build static library pyQuadriflow.
+
+![image](https://github.com/satabol/QuadriFlow/assets/14288520/3dd8d07a-528e-4507-a608-238b1bb3a03e)
+
+This is the end of build for Windows.
+
+## Linux Build
+
+For Linux build I will use [WSL](https://learn.microsoft.com/en-us/windows/wsl/install).
+
+#### Dependency
+
+Create folder /opt/github.com and open teminal here. Now clone 
+
+```
+apt-get install cmake git
+```
+
+Create folder /opt/github.com and open teminal here. Now clone 
+
+```
+git clone https://github.com/satabol/quadriflow.git
+git clone https://github.com/PX4/eigen
+wget https://boostorg.jfrog.io/artifactory/main/release/1.85.0/source/boost_1_85_0.zip
+unzip boost_1_85_0.zip .
+```
+
+![image](https://github.com/satabol/QuadriFlow/assets/14288520/b5451163-cab1-4e4f-b5a8-08b9408a6f2b)
+
+open eigen, create 'build' folder, open it and build it:
+
+```
+cmake .. -DCMAKE_INSTALL_PREFIX:PATH=/opt/github.com/eigen/build
+make -j install
+```
+
+Now you get eigen installed:
+
+![image](https://github.com/satabol/QuadriFlow/assets/14288520/1e3f9d3a-4562-48ae-b458-76679c4ebf2c)
+
+
+Now open quadriflow folder, make folder with name **build** and open it:
+
+```
+cmake .. -DCMAKE_BUILD_TYPE=release -DEIGEN_INCLUDE_DIR=/opt/github.com/eigen/build/include/eigen3/ -DBoost_INCLUDE_DIR=/opt/github.com/boost_1_85_0 -DCMAKE_CXX_FLAGS="-fpic"
+make -j
+```
+
+![image](https://github.com/satabol/QuadriFlow/assets/14288520/253bab4b-512d-41a5-a16b-8e5fbb40c31d)
+
+## Result
+
+Now we have two files for pyQuadriFlow:
+
+![image](https://github.com/satabol/QuadriFlow/assets/14288520/755a6806-f8de-4767-9780-6a4a653d956b)
