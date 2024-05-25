@@ -104,6 +104,6 @@ make -j
 
 ## Result
 
-Now we have two static library files for pyQuadriFlow:
+Now we have two static library files for pyQuadriFlow https://github.com/satabol/pyQuadriFlow:
 
 ![image](https://github.com/satabol/QuadriFlow/assets/14288520/755a6806-f8de-4767-9780-6a4a653d956b)
