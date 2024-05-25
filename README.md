@@ -9,9 +9,11 @@ In Blender this remesher used in the Mesh->Remesh->Quad menu:
 
 ![image](https://github.com/satabol/QuadriFlow/assets/14288520/56dd4baf-284f-4cbb-b866-61b434e44b1b)
 
-## Windows Build
+As a result, two files are generated: 
+- **quadriflow.lib** (for Windows)
+- **libquadriflow.a** (for Linux)
 
-There is **quadriflow.lib** has to be gotten at the end of this part.
+## Windows Build
 
 #### Dependencies
 
