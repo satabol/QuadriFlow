@@ -52,28 +52,26 @@ Now you have Visual Studio 2022 Solution in the folder build:
 
 open this solution in the Visual Studio and build it. If all ok then you have to see static library **quadriflow.lib**. It will used later to build static library pyQuadriflow.
 
-![image](https://github.com/satabol/QuadriFlow/assets/14288520/a36200d2-d81e-452b-ad0e-792c2a4286c9)
+![image](https://github.com/satabol/QuadriFlow/assets/14288520/3dd8d07a-528e-4507-a608-238b1bb3a03e)
 
+This is the end of build for Windows.
 
 ## Linux Build
 
-For Linux build I will use [WSL](https://learn.microsoft.com/en-us/windows/wsl/install). But one can repeat this process on the Linux too.
+For Linux build I will use [WSL](https://learn.microsoft.com/en-us/windows/wsl/install).
 
 #### Dependency
 
-install cmake if you have no it: 
+Create folder /opt/github.com and open teminal here. Now clone 
 
 ```
 apt-get install cmake git
 ```
 
-Create folder /opt/github.com and open teminal here. Now clone
-- **quadriflow** (https://github.com/satabol/quadriflow.git)*
-- **eigen** https://github.com/PX4/eigen
-- **boost** https://www.boost.org/users/download/ (one can download it manually)
+Create folder /opt/github.com and open teminal here. Now clone 
 
 ```
-git clone https://github.com/satabol/quadriflow
+git clone https://github.com/satabol/quadriflow.git
 git clone https://github.com/PX4/eigen
 wget https://boostorg.jfrog.io/artifactory/main/release/1.85.0/source/boost_1_85_0.zip
 unzip boost_1_85_0.zip .
