@@ -9,9 +9,11 @@ In Blender this remesher used in the Mesh->Remesh->Quad menu:
 
 ![image](https://github.com/satabol/QuadriFlow/assets/14288520/56dd4baf-284f-4cbb-b866-61b434e44b1b)
 
-## Windows Build
+As a result, two files are generated: 
+- **quadriflow.lib** (for Windows)
+- **libquadriflow.a** (for Linux)
 
-There is **quadriflow.lib** has to be gotten at the end of this part.
+## Windows Build
 
 #### Dependencies
 
@@ -50,26 +52,28 @@ Now you have Visual Studio 2022 Solution in the folder build:
 
 open this solution in the Visual Studio and build it. If all ok then you have to see static library **quadriflow.lib**. It will used later to build static library pyQuadriflow.
 
-![image](https://github.com/satabol/QuadriFlow/assets/14288520/3dd8d07a-528e-4507-a608-238b1bb3a03e)
+![image](https://github.com/satabol/QuadriFlow/assets/14288520/a36200d2-d81e-452b-ad0e-792c2a4286c9)
 
-This is the end of build for Windows.
 
 ## Linux Build
 
-For Linux build I will use [WSL](https://learn.microsoft.com/en-us/windows/wsl/install).
+For Linux build I will use [WSL](https://learn.microsoft.com/en-us/windows/wsl/install). But one can repeat this process on the Linux too.
 
 #### Dependency
 
-Create folder /opt/github.com and open teminal here. Now clone 
+install cmake if you have no it: 
 
 ```
 apt-get install cmake git
 ```
 
-Create folder /opt/github.com and open teminal here. Now clone 
+Create folder /opt/github.com and open teminal here. Now clone
+- **quadriflow** (https://github.com/satabol/quadriflow.git)*
+- **eigen** https://github.com/PX4/eigen
+- **boost** https://www.boost.org/users/download/ (one can download it manually)
 
 ```
-git clone https://github.com/satabol/quadriflow.git
+git clone https://github.com/satabol/quadriflow
 git clone https://github.com/PX4/eigen
 wget https://boostorg.jfrog.io/artifactory/main/release/1.85.0/source/boost_1_85_0.zip
 unzip boost_1_85_0.zip .
@@ -100,6 +104,6 @@ make -j
 
 ## Result
 
-Now we have two files for pyQuadriFlow:
+Now we have two static library files for pyQuadriFlow:
 
 ![image](https://github.com/satabol/QuadriFlow/assets/14288520/755a6806-f8de-4767-9780-6a4a653d956b)
